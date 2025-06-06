@@ -3,6 +3,7 @@ import axios from 'axios';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as yup from 'yup';
 import { Container, Button, Alert } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 
 const Register = () => {
     const validationSchema = yup.object({
@@ -10,11 +11,13 @@ const Register = () => {
         email: yup.string().email('Invalid email').required('Email is required'),
         password: yup.string().min(6, 'Minimum 6 characters').required('Password is required')
     });
+    const navigate = useNavigate("/")
 
     const handleSubmit = async (values, { resetForm }) => {
         try {
             await axios.post('https://task-backend-gilt-psi.vercel.app/auth/register', values);
             alert('User registered successfully');
+            navigate("/")
             resetForm();
         } catch (error) {
             alert(error.response.data)
