@@ -28,6 +28,8 @@ const Login = () => {
             alert('Login successful');
             navigate("/blog")
         } catch (error) {
+            alert(error.response.data)
+            navigate("register")
             alert('Login failed');
             console.error(error);
         }

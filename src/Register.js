@@ -17,6 +17,7 @@ const Register = () => {
             alert('User registered successfully');
             resetForm();
         } catch (error) {
+            alert(error.response.data)
             alert('Error registering user');
             console.log(error);
         }

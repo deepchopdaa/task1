@@ -34,6 +34,7 @@ const Blog = () => {
             setLoading(false);
         } catch (error) {
             console.error('Error fetching blogs:', error);
+            alert(error.response.data)
             setLoading(false);
         }
     };
@@ -50,6 +51,7 @@ const Blog = () => {
             setLikes(prev => ({ ...prev, [id]: res.data.likes }));
         } catch (error) {
             console.error('Like error:', error);
+            alert(error.response.data)
         }
     };
 
@@ -63,7 +65,8 @@ const Blog = () => {
                 headers: { Authorization: `Bearer ${token}` }
             }).then(() => {
                 console.log("Add New comment")
-            }).catch(() => {
+            }).catch((error) => {
+                alert(error.response.data)
                 console.log("Blog Comment Error !")
             });
             alert("comment Add Successfully")
