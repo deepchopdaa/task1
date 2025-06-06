@@ -14,7 +14,7 @@ const Blog = () => {
 
     const fetchBlogs = async () => {
         try {
-            const res = await axios.get('http://localhost:5000/blog/getuserblog');
+            const res = await axios.get('https://task-backend-gilt-psi.vercel.app/blog/getuserblog');
             const blogData = res.data;
 
             // Initialize per-blog likes/comments state
@@ -44,7 +44,7 @@ const Blog = () => {
 
     const handleLike = async (id) => {
         try {
-            const res = await axios.post(`http://localhost:5000/blog/${id}/like`, {}, {
+            const res = await axios.post(`https://task-backend-gilt-psi.vercel.app/blog/${id}/like`, {}, {
                 headers: { Authorization: `Bearer ${token}` }
             })
             setLikes(prev => ({ ...prev, [id]: res.data.likes }));
@@ -57,7 +57,7 @@ const Blog = () => {
         const text = commentTexts[id];
         if (!text.trim()) return;
         try {
-            const res = await axios.post(`http://localhost:5000/blog/${id}/comment`, {
+            const res = await axios.post(`https://task-backend-gilt-psi.vercel.app/blog/${id}/comment`, {
                 Comment: text
             }, {
                 headers: { Authorization: `Bearer ${token}` }
@@ -96,14 +96,14 @@ const Blog = () => {
                         <Col md={6} lg={4} key={blog._id} className="mb-4">
                             <Card >
                                 {blog.mediatype?.startsWith("image") ? (
-                                    <Card.Img variant="top" height="300px" src={`http://localhost:5000/${blog.media}`} alt="blog media" onClick={() => navigate(`/blog/${blog._id}`)}/>
+                                    <Card.Img variant="top" height="300px" src={`https://task-backend-gilt-psi.vercel.app/${blog.media}`} alt="blog media" onClick={() => navigate(`/blog/${blog._id}`)} />
                                 ) : blog.mediatype?.startsWith("video") ? (
                                     <video height="300px" controls onClick={() => navigate(`/blog/${blog._id}`)}>
-                                        <source src={`http://localhost:5000/${blog.media}`} type={blog.mediatype} />
+                                        <source src={`https://task-backend-gilt-psi.vercel.app/${blog.media}`} type={blog.mediatype} />
                                         Your browser does not support video
                                     </video>
                                 ) : (
-                                    <a href={`http://localhost:5000/${blog.media}`} target="_blank" rel="noopener noreferrer">View Media</a>
+                                    <a href={`https://task-backend-gilt-psi.vercel.app/${blog.media}`} target="_blank" rel="noopener noreferrer">View Media</a>
                                 )}
                                 <Card.Body onClick={() => navigate(`/blog/${blog._id}`)}>
                                     <Card.Title>{blog.title}</Card.Title>
@@ -119,7 +119,7 @@ const Blog = () => {
                                         <Button variant="outline-success" onClick={() => handleComment(blog?._id)}>
                                             💬 Comment
                                         </Button>
-                                        <Button variant="outline-secondary" onClick={()=>handleShare(blog?._id)}>
+                                        <Button variant="outline-secondary" onClick={() => handleShare(blog?._id)}>
                                             🔗 Share
                                         </Button>
                                     </div>

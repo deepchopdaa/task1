@@ -14,7 +14,7 @@ const BlogDetails = () => {
 
     const fetchBlog = async () => {
         try {
-            const res = await axios.get(`http://localhost:5000/blog/getsingnle/${id}`);
+            const res = await axios.get(`https://task-backend-gilt-psi.vercel.app/blog/getsingnle/${id}`);
             console.log(res.data)
             setBlog(res.data);
             setLikesCount(res.data.likes?.length || 0);
@@ -28,7 +28,7 @@ const BlogDetails = () => {
 
     const handleLike = async () => {
         try {
-            const res = await axios.post(`http://localhost:5000/blog/${id}/like`, {}, {
+            const res = await axios.post(`https://task-backend-gilt-psi.vercel.app/blog/${id}/like`, {}, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             setLikesCount(res.data.likes);
@@ -40,7 +40,7 @@ const BlogDetails = () => {
     const handleComment = async () => {
         if (!commentText.trim()) return;
         try {
-            const res = await axios.post(`http://localhost:5000/blog/${id}/comment`, {
+            const res = await axios.post(`https://task-backend-gilt-psi.vercel.app/blog/${id}/comment`, {
                 Comment: commentText
             }, {
                 headers: { Authorization: `Bearer ${token}` }
@@ -77,10 +77,10 @@ const BlogDetails = () => {
         <Container className="my-5">
             <Card className="shadow-lg">
                 {blog.mediatype?.startsWith("image") ? (
-                    <Card.Img variant="top" height="600px" src={`http://localhost:5000/${blog.media}`} />
+                    <Card.Img variant="top" height="600px" src={`https://task-backend-gilt-psi.vercel.app/${blog.media}`} />
                 ) : blog.mediatype?.startsWith("video") ? (
                     <video className="w-100" height="600" controls>
-                        <source src={`http://localhost:5000/${blog.media}`} type={blog.mediatype} />
+                        <source src={`https://task-backend-gilt-psi.vercel.app/${blog.media}`} type={blog.mediatype} />
                         Your browser does not support the video tag.
                     </video>
                 ) : null}

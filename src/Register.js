@@ -13,7 +13,7 @@ const Register = () => {
 
     const handleSubmit = async (values, { resetForm }) => {
         try {
-            await axios.post('http://localhost:5000/auth/register', values);
+            await axios.post('https://task-backend-gilt-psi.vercel.app/auth/register', values);
             alert('User registered successfully');
             resetForm();
         } catch (error) {
