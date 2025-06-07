@@ -77,10 +77,10 @@ const BlogDetails = () => {
         <Container className="my-5">
             <Card className="shadow-lg">
                 {blog.mediatype?.startsWith("image") ? (
-                    <Card.Img variant="top" height="600px" src={`https://task-backend-gilt-psi.vercel.app/${blog.media}`} />
+                    <Card.Img variant="top" height="600px" src={blog.media} />
                 ) : blog.mediatype?.startsWith("video") ? (
                     <video className="w-100" height="600" controls>
-                        <source src={`https://task-backend-gilt-psi.vercel.app/${blog.media}`} type={blog.mediatype} />
+                        <source src={blog.media} type={blog.mediatype} />
                         Your browser does not support the video tag.
                     </video>
                 ) : null}
