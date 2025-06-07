@@ -77,13 +77,21 @@ const BlogDetails = () => {
         <Container className="my-5">
             <Card className="shadow-lg">
                 {blog.mediatype?.startsWith("image") ? (
-                    <Card.Img variant="top" height="600px" src={blog.media} />
+                    <Card.Img
+                        variant="top"
+                        src={blog.media}
+                        alt={blog.title}
+                        style={{ height: "600px", objectFit: "cover" }}
+                    />
                 ) : blog.mediatype?.startsWith("video") ? (
                     <video className="w-100" height="600" controls>
                         <source src={blog.media} type={blog.mediatype} />
                         Your browser does not support the video tag.
                     </video>
-                ) : null}
+                ) : (
+                    <p>No media available</p>
+                )}
+
 
                 <Card.Body>
                     <Card.Title className="text-center fs-2 fw-bold mb-3">{blog.title}</Card.Title>

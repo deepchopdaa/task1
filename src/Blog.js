@@ -99,14 +99,14 @@ const Blog = () => {
                         <Col md={6} lg={4} key={blog._id} className="mb-4">
                             <Card >
                                 {blog.mediatype?.startsWith("image") ? (
-                                    <Card.Img variant="top" height="300px" src={`https://task-backend-gilt-psi.vercel.app/${blog.media}`} alt="blog media" onClick={() => navigate(`/blog/${blog._id}`)} />
+                                    <Card.Img variant="top" height="300px" src={blog.media} alt="blog media" onClick={() => navigate(`/blog/${blog._id}`)} />
                                 ) : blog.mediatype?.startsWith("video") ? (
                                     <video height="300px" controls onClick={() => navigate(`/blog/${blog._id}`)}>
-                                        <source src={`https://task-backend-gilt-psi.vercel.app/${blog.media}`} type={blog.mediatype} />
+                                        <source src={blog.media} type={blog.mediatype} />
                                         Your browser does not support video
                                     </video>
                                 ) : (
-                                    <a href={`https://task-backend-gilt-psi.vercel.app/${blog.media}`} target="_blank" rel="noopener noreferrer">View Media</a>
+                                    <a href={blog.media} target="_blank" rel="noopener noreferrer">View Media</a>
                                 )}
                                 <Card.Body onClick={() => navigate(`/blog/${blog._id}`)}>
                                     <Card.Title>{blog.title}</Card.Title>
