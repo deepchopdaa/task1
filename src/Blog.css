@@ -1,0 +1,92 @@
+body {
+    background: linear-gradient(135deg, #f9f9fb, #f0f4ff);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+}
+
+.blog-container {
+    min-height: 100vh;
+    padding-top: 50px;
+    background: radial-gradient(circle at top right, #f2f8ff 20%, #ffffff 80%);
+}
+
+.blog-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 30px;
+    letter-spacing: -0.5px;
+    background: -webkit-linear-gradient(#0f2027, #2c5364);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.blog-card {
+    border: none;
+    border-radius: 18px;
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+    background-color: #ffffff;
+    backdrop-filter: blur(6px);
+}
+
+.blog-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+}
+
+.blog-img,
+.blog-video {
+    height: 240px;
+    object-fit: cover;
+    width: 100%;
+    transition: filter 0.3s;
+}
+
+.blog-card:hover .blog-img,
+.blog-card:hover .blog-video {
+    filter: brightness(0.95);
+}
+
+.card-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #1a1a1a;
+}
+
+.card-text {
+    font-size: 0.95rem;
+    color: #666;
+}
+
+.card-footer {
+    border-top: none;
+    background-color: transparent;
+}
+
+.comment-list {
+    max-height: 80px;
+    overflow-y: auto;
+    padding-left: 5px;
+}
+
+.comment-item {
+    background: #eef2f7;
+    padding: 6px 10px;
+    margin-bottom: 4px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    color: #333;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+
+.form-control {
+    font-size: 0.9rem;
+    border-radius: 8px;
+}
+
+button {
+    font-size: 0.8rem !important;
+    border-radius: 8px !important;
+}

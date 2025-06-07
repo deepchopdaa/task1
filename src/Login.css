@@ -1,0 +1,33 @@
+.login-bg {
+    background: linear-gradient(to right, #f9f9f9, #e6f0ff);
+    min-height: 100vh;
+    padding: 40px 0;
+}
+
+.login-card {
+    border-radius: 20px;
+    background: #fff;
+    border: none;
+    transition: all 0.3s ease-in-out;
+}
+
+.login-card:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    font-weight: 600;
+}
+
+.text-danger {
+    font-size: 0.875rem;
+}
+
+a {
+    text-decoration: none;
+    color: #007bff;
+}
+
+a:hover {
+    text-decoration: underline;
+}
