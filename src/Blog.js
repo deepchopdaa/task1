@@ -13,6 +13,11 @@ const Blog = () => {
     const navigate = useNavigate();
     const token = localStorage.getItem('token');
 
+    const Logout = () => {
+        localStorage.removeItem("token")
+        navigate("/")
+    }
+
     const fetchBlogs = async () => {
         try {
             const res = await axios.get('https://task-backend-gilt-psi.vercel.app/blog/getuserblog');
@@ -88,6 +93,9 @@ const Blog = () => {
     return (
         <Container className="py-5 blog-container">
             <h2 className="text-center mb-4 blog-title">Explore Blogs</h2>
+            <div className="position-absolute top-0 end-0 m-3">
+                <Button variant="primary" onClick={Logout}>Logout</Button>
+            </div>
             {loading ? (
                 <div className="text-center">
                     <Spinner animation="border" />
